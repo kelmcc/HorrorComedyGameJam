@@ -1,4 +1,5 @@
 //RenderHeads - Jeff Rusch
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,10 +22,25 @@ namespace RenderHeads
 		{
             SceneManager.LoadScene(index);
 		}
-        #endregion
 
-        #region Private Methods
+		internal void ShowBadTouchAnimation()
+		{
+			SceneManager.LoadScene(5, LoadSceneMode.Additive);
+		}
 
-        #endregion
-    }
+		internal void ShowGoodTouchAnimation()
+		{
+			SceneManager.LoadScene(5, LoadSceneMode.Additive);
+		}
+
+		internal void HideTouchAnimation()
+		{
+			SceneManager.UnloadSceneAsync(5);
+		}
+		#endregion
+
+		#region Private Methods
+
+		#endregion
+	}
 }

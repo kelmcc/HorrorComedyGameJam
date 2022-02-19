@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lose.unity
     guid: c05266f0760264c26a4791dd36f9c66d
+  - enabled: 1
+    path: Assets/Scenes/GoodTouch.unity
+    guid: 838f6ed1b72d94a9c868c80e9ed02f2a
+  - enabled: 1
+    path: Assets/Scenes/BadTouch.unity
+    guid: a856bdd2f0fc84420a83db8d56a90ddb
   m_configObjects: {}
