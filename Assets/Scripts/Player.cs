@@ -15,6 +15,11 @@ namespace RenderHeads
 
 		Vector3 inputMovement;
 
+		public void Start()
+		{
+			LevelManagerService.Instance.RegisterPlayer(this);
+		}
+
 		public void Update()
 		{
 			inputMovement.x = Input.GetAxisRaw("Horizontal");
@@ -32,7 +37,7 @@ namespace RenderHeads
 
 		public void FoundPickUp(PickUp pickUp)
 		{
-			
+			LevelManagerService.Instance.FoundPickup();
 		}
 
 		public void OnTriggerEnter(Collider other)

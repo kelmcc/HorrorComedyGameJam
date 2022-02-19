@@ -48,7 +48,8 @@ namespace RenderHeads
 		internal void RegisterPlayer(Player player)
 		{
             this.player = player;
-		}
+            Debug.Log("Registered Player");
+        }
 
 		internal void FoundPickup()
 		{
