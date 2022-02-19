@@ -44,6 +44,11 @@ namespace RenderHeads
 			levelmanager.StartLevel();
 		}
 
+		internal Player GetPlayer()
+		{
+			return levelmanager.GetPlayer();
+		}
+
 		public void RegisterPlayer(Player player)
 		{
 			levelmanager.RegisterPlayer(player);

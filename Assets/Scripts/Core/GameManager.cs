@@ -32,11 +32,13 @@ namespace RenderHeads
 		internal void WinGame()
 		{
 			Debug.Log("Win Game");
+			ScreenManagerService.Instance.WinScreen();
 		}
 
 		internal void LoseGame()
 		{
 			Debug.Log("Lose Game");
+			ScreenManagerService.Instance.LoseScreen();
 		}
 	}
 }
