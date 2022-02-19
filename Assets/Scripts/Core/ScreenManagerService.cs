@@ -25,15 +25,19 @@ namespace RenderHeads
 
         #region Private Properties
 		private static ScreenManagerService _instance;
+		private ScreenManager screenManager;
+		#endregion
 
-        #endregion
+		#region Public Methods
+		public void Init()
+		{
+			screenManager = new ScreenManager();
+			Debug.Log("Hello ScreenManager");
+		}
+		#endregion
 
-        #region Public Methods
+		#region Private Methods
 
-        #endregion
-
-        #region Private Methods
-
-        #endregion
-    }
+		#endregion
+	}
 }

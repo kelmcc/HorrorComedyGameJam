@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace RenderHeads
 {
-    public class ScreenManager : MonoBehaviour
+    public class ScreenManager
     {
         #region Public Properties
         

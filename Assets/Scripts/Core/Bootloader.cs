@@ -7,20 +7,24 @@ namespace RenderHeads
 {
     public class Bootloader : MonoBehaviour
     {
-        #region Public Properties
-        
-        #endregion
+		#region Public Properties
 
-        #region Private Properties
+		#endregion
 
-        #endregion
+		#region Private Properties
 
-        #region Public Methods
+		#endregion
 
-        #endregion
+		#region Public Methods
+		public void Awake()
+		{
+			GameManagerService.Instance.Init();
+			ScreenManagerService.Instance.Init();
+		}
+		#endregion
 
-        #region Private Methods
+		#region Private Methods
 
-        #endregion
-    }
+		#endregion
+	}
 }

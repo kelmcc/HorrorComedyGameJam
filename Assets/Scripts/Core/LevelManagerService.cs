@@ -25,15 +25,19 @@ namespace RenderHeads
 
         #region Private Properties
 		private static LevelManagerService _instance;
+		private LevelManager levelmanager;
+		#endregion
 
-        #endregion
+		#region Public Methods
+		public void Init()
+		{
+			levelmanager = new LevelManager();
+			Debug.Log("Hello LevelManager");
+		}
+		#endregion
 
-        #region Public Methods
+		#region Private Methods
 
-        #endregion
-
-        #region Private Methods
-
-        #endregion
-    }
+		#endregion
+	}
 }
