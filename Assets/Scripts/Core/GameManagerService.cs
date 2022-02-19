@@ -25,11 +25,15 @@ namespace RenderHeads
 
         #region Private Properties
 		private static GameManagerService _instance;
-
+		private GameManager gameManager;
         #endregion
 
         #region Public Methods
-
+		public void Init()
+		{
+			gameManager = new GameManager();
+			Debug.Log("Hello GameManager");
+		}
         #endregion
 
         #region Private Methods

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace RenderHeads
 {
-    public class LevelManager : MonoBehaviour
+    public class LevelManager
     {
         #region Public Properties
         

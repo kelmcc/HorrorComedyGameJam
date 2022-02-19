@@ -2,10 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace RenderHeads
 {
-    public class ScreenManager : MonoBehaviour
+    public class ScreenManager
     {
         #region Public Properties
         
@@ -16,7 +17,10 @@ namespace RenderHeads
         #endregion
 
         #region Public Methods
-
+        public void LoadScene(int index)
+		{
+            SceneManager.LoadScene(index);
+		}
         #endregion
 
         #region Private Methods

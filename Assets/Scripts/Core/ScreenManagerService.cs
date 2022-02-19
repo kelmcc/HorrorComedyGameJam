@@ -1,4 +1,5 @@
 //RenderHeads - Jeff Rusch
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,15 +26,36 @@ namespace RenderHeads
 
         #region Private Properties
 		private static ScreenManagerService _instance;
+		private ScreenManager screenManager;
 
-        #endregion
 
-        #region Public Methods
+		#endregion
 
-        #endregion
+		#region Public Methods
+		public void Init()
+		{
+			screenManager = new ScreenManager();
+			Debug.Log("Hello ScreenManager");
+		}
 
-        #region Private Methods
+		public void LoadMenu()
+		{
+			screenManager.LoadScene(1);
+		}
 
-        #endregion
-    }
+		public void LoadGame()
+		{
+			screenManager.LoadScene(2);
+		}
+
+		internal void LoadCharacterScene()
+		{
+			screenManager.LoadScene(3);
+		}
+		#endregion
+
+		#region Private Methods
+
+		#endregion
+	}
 }
