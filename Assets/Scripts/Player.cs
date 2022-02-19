@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+[RequireComponent(typeof(Rigidbody))]
+public class Player : MonoBehaviour {
+
+    public float movementSpeed = 5f;
+
+    public Rigidbody rb;
+    public Animator animator;
+
+    Vector3 inputMovement;
+
+    void Update() {
+        inputMovement.x = Input.GetAxisRaw("Horizontal");
+        inputMovement.z = Input.GetAxisRaw("Vertical");
+
+        animator.SetFloat("Horizontal", inputMovement.x);
+        animator.SetFloat("Vertical", inputMovement.z);
+        animator.SetFloat("Speed", inputMovement.sqrMagnitude);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void FixedUpdate() {
+        rb.MovePosition(rb.position + inputMovement * movementSpeed * Time.fixedDeltaTime);
     }
 }
