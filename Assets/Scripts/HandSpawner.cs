@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class HandsManager : MonoBehaviour
+public class HandSpawner : MonoBehaviour
 {
 
 	public GameObject agentPrefab;
@@ -27,17 +27,6 @@ public class HandsManager : MonoBehaviour
 	{
 		GameObject newAgent = GameObject.Instantiate(agentPrefab);
 		newAgent.transform.position = new Vector3(Random.Range(-50f, 50f), 0f, Random.Range(-50f, 50f));
-		NavMeshAgent navMeshAgent = newAgent.GetComponent<NavMeshAgent>();
-
-
-		agents.Add(navMeshAgent);
-	}
-
-	void Update()
-	{
-		for (int i = 0; i < agents.Count; i++)
-		{
-			agents[i].destination = player.transform.position;
-		}
+		newAgent.GetComponent<Seek>().SetTarget(player.transform);
 	}
 }
