@@ -54,8 +54,12 @@ namespace RenderHeads
 			{
 				FoundPickUp(pickUp);
 			}
+		}
 
-			HandAgent handAgent = other.gameObject.GetComponent<HandAgent>();
+		public void OnCollisionEnter(Collision collision)
+		{
+
+			HandAgent handAgent = collision.gameObject.GetComponent<HandAgent>();
 
 			if (handAgent != null)
 			{

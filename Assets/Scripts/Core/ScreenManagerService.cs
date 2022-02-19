@@ -28,7 +28,6 @@ namespace RenderHeads
 		private static ScreenManagerService _instance;
 		private ScreenManager screenManager;
 
-
 		#endregion
 
 		#region Public Methods
@@ -41,6 +40,21 @@ namespace RenderHeads
 		public void LoadMenu()
 		{
 			screenManager.LoadScene(1);
+		}
+
+		internal void ShowBadTouchAnimation()
+		{
+			screenManager.ShowBadTouchAnimation();
+		}
+
+		internal void ShowGoodTouchAnimation()
+		{
+			screenManager.ShowGoodTouchAnimation();
+		}
+
+		internal void HideTouchAnimation()
+		{
+			screenManager.HideTouchAnimation();
 		}
 
 		public void LoadGame()
