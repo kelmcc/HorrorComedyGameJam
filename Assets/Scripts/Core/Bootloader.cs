@@ -20,6 +20,7 @@ namespace RenderHeads
 		{
 			GameManagerService.Instance.Init();
 			ScreenManagerService.Instance.Init();
+			LevelManagerService.Instance.Init();
 
 			ScreenManagerService.Instance.LoadMenu();
 		}

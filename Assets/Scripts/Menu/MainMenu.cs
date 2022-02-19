@@ -18,7 +18,7 @@ namespace RenderHeads
         #region Public Methods
         public void StartGame()
 		{
-            ScreenManagerService.Instance.LoadGame();
+            GameManagerService.Instance.StartGame();
 		}
 
         public void GoToCharacterScene()
