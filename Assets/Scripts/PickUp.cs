@@ -1,26 +1,31 @@
 //RenderHeads - Jeff Rusch
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace RenderHeads
 {
-    public class PickUp : MonoBehaviour
-    {
-        #region Public Properties
-        
-        #endregion
+	public class PickUp : MonoBehaviour
+	{
+		#region Public Properties
 
-        #region Private Properties
+		#endregion
 
-        #endregion
+		#region Private Properties
 
-        #region Public Methods
+		#endregion
 
-        #endregion
+		#region Public Methods
 
-        #region Private Methods
+		#endregion
 
-        #endregion
-    }
+		#region Private Methods
+
+		#endregion
+		internal void Unload()
+		{
+			Destroy(this.gameObject);
+		}
+	}
 }

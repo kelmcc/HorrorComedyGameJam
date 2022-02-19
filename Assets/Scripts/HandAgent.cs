@@ -39,7 +39,7 @@ namespace RenderHeads
 
 			StopSeeking();
 
-			LevelManagerService.Instance.RegisterHand(this);
+			LevelManagerService.Instance.DeregisterHand(this);
 		}
 
 		private void FoundPlayer(Transform transform)
@@ -51,6 +51,12 @@ namespace RenderHeads
 
 			targetTransform = transform;
 			StartSeeking();
+		}
+
+		internal void Unload()
+		{
+			LevelManagerService.Instance.DeregisterHand(this);
+			Destroy(this.gameObject);
 		}
 
 		private void LostPlayer()

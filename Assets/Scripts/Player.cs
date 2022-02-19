@@ -44,6 +44,7 @@ namespace RenderHeads
 		private void GetPetted(HandAgent handAgent)
 		{
 			LevelManagerService.Instance.GetPetted(handAgent.TouchType);
+			handAgent.Unload();
 		}
 
 		public void OnTriggerEnter(Collider other)
@@ -53,6 +54,7 @@ namespace RenderHeads
 			if (pickUp != null)
 			{
 				FoundPickUp(pickUp);
+				pickUp.Unload();
 			}
 		}
 

@@ -59,6 +59,11 @@ namespace RenderHeads
 			levelmanager.RegisterHand(handAgent);
 		}
 
+		internal void DeregisterHand(HandAgent handAgent)
+		{
+			levelmanager.DeregisterHand(handAgent);
+		}
+
 		internal void PauseHands()
 		{
 			levelmanager.PauseHands();

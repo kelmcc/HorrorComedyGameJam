@@ -7,43 +7,45 @@ using UnityEngine.SceneManagement;
 
 namespace RenderHeads
 {
-    public class ScreenManager
-    {
-        #region Public Properties
-        
-        #endregion
+	public class ScreenManager
+	{
+		#region Public Properties
 
-        #region Private Properties
+		#endregion
 
-        #endregion
+		#region Private Properties
+		private int overlaySceneIndex = -1;
+		#endregion
 
-        #region Public Methods
-        public void LoadScene(int index)
+		#region Public Methods
+		public void LoadScene(int index)
 		{
-            SceneManager.LoadScene(index);
+			SceneManager.LoadScene(index);
 		}
 
 		internal void ShowBadTouchAnimation()
 		{
-			SceneManager.LoadScene(6, LoadSceneMode.Additive);
+			if (overlaySceneIndex < 0)
+			{
+				SceneManager.LoadScene(6, LoadSceneMode.Additive);
+				overlaySceneIndex = 6;
+			}
 		}
 
 		internal void ShowGoodTouchAnimation()
 		{
-			SceneManager.LoadScene(5, LoadSceneMode.Additive);
+			if (overlaySceneIndex < 0)
+			{
+				SceneManager.LoadScene(5, LoadSceneMode.Additive);
+				overlaySceneIndex = 5;
+			}
 		}
 
 		internal void HideTouchAnimation()
 		{
-			if (SceneManager.GetSceneByBuildIndex(5) != null)
-			{
-				SceneManager.UnloadSceneAsync(5);
-			}
-			else if (SceneManager.GetSceneByBuildIndex(6) != null)
-			{
-				SceneManager.UnloadSceneAsync(6);
-			}
+			SceneManager.UnloadSceneAsync(overlaySceneIndex);
 
+			overlaySceneIndex = -1;
 			LevelManagerService.Instance.ResumeHands();
 		}
 		#endregion
