@@ -13,7 +13,7 @@ namespace RenderHeads
 
 		#region Private Properties
 		private float screenTimeUp = 0f;
-		private float screenDuration = 1f;
+		public float screenDuration = 1f;
 		#endregion
 
 		#region Public Methods

@@ -25,7 +25,7 @@ namespace RenderHeads
 
 		private bool _isSeeking = false;
 		private bool _hasSetStance = false;
-		private float _badTouchChance = 0.5f;
+		private float _badTouchChance = 0.8f;
 		private Transform targetTransform;
 		#endregion
 
@@ -33,7 +33,7 @@ namespace RenderHeads
 		private void Start()
 		{
 			navMeshAgent = GetComponent<NavMeshAgent>();
-			navMeshAgent.speed = 1.5f;
+			navMeshAgent.speed = 4.5f;
 			HandDetection.SetFoundPlayerAction(FoundPlayer);
 			HandDetection.SetLostPlayerAction(LostPlayer);
 
