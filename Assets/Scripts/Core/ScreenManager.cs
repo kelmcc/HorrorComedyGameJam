@@ -25,7 +25,7 @@ namespace RenderHeads
 
 		internal void ShowBadTouchAnimation()
 		{
-			SceneManager.LoadScene(5, LoadSceneMode.Additive);
+			SceneManager.LoadScene(6, LoadSceneMode.Additive);
 		}
 
 		internal void ShowGoodTouchAnimation()
@@ -35,7 +35,16 @@ namespace RenderHeads
 
 		internal void HideTouchAnimation()
 		{
-			SceneManager.UnloadSceneAsync(5);
+			if (SceneManager.GetSceneByBuildIndex(5) != null)
+			{
+				SceneManager.UnloadSceneAsync(5);
+			}
+			else if (SceneManager.GetSceneByBuildIndex(6) != null)
+			{
+				SceneManager.UnloadSceneAsync(6);
+			}
+
+			LevelManagerService.Instance.ResumeHands();
 		}
 		#endregion
 

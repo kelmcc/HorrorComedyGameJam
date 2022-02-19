@@ -34,12 +34,12 @@ namespace RenderHeads
 			if (touchType == TouchType.Bad)
 			{
 				badTouchCount++;
-				ScreenManagerService.Instance.ShowBadTouchAnimation();
+				ShowTouchAnimation(TouchType.Bad);
 			}
 			else
 			{
 				badTouchCount--;
-				ScreenManagerService.Instance.ShowGoodTouchAnimation();
+				ShowTouchAnimation(TouchType.Good);
 			}
 
 			if (badTouchCount < 0)
@@ -53,6 +53,20 @@ namespace RenderHeads
 			{
 				LoseGame();
 			}
+		}
+
+		private void ShowTouchAnimation(TouchType touchType)
+		{
+			if (touchType == TouchType.Bad)
+			{
+				ScreenManagerService.Instance.ShowBadTouchAnimation();
+			}
+			else
+			{
+				ScreenManagerService.Instance.ShowGoodTouchAnimation();
+			}
+
+			PauseHands();
 		}
 
 		internal void RegisterHand(HandAgent handAgent)
