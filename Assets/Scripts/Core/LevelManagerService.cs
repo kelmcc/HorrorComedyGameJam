@@ -43,6 +43,16 @@ namespace RenderHeads
 		{
 			levelmanager.StartLevel();
 		}
+
+		public void RegisterPlayer(Player player)
+		{
+			levelmanager.RegisterPlayer(player);
+		}
+
+		internal void FoundPickup()
+		{
+			levelmanager.FoundPickup();
+		}
 		#endregion
 
 		#region Private Methods

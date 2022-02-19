@@ -1,4 +1,5 @@
 //RenderHeads - Jeff Rusch
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,18 +9,21 @@ namespace RenderHeads
     public class LevelManager
     {
         #region Public Properties
-        
+
         #endregion
 
         #region Private Properties
-
+        private int score = 0;
+        private Player player = null;
         #endregion
 
         #region Public Methods
         public void StartLevel()
 		{
             Debug.Log("Starting level");
-		}
+            ResetLevel();
+
+        }
 
         public void PickUp()
         {
@@ -41,14 +45,28 @@ namespace RenderHeads
             GameManagerService.Instance.WinGame();
         }
 
-        public void LoseGame()
+		internal void RegisterPlayer(Player player)
+		{
+            this.player = player;
+		}
+
+		internal void FoundPickup()
+		{
+            score++;
+            Debug.LogFormat("Found Pickup ({0})", score);
+        }
+
+		public void LoseGame()
         {
             GameManagerService.Instance.LoseGame();
         }
         #endregion
 
         #region Private Methods
-
+        private void ResetLevel()
+		{
+            this.score = 0;
+		}
         #endregion
     }
 }
