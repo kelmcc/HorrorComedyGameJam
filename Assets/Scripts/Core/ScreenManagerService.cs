@@ -48,9 +48,14 @@ namespace RenderHeads
 			screenManager.LoadScene(2);
 		}
 
-		internal void LoadCharacterScene()
+		internal void WinScreen()
 		{
 			screenManager.LoadScene(3);
+		}
+
+		internal void LoseScreen()
+		{
+			screenManager.LoadScene(4);
 		}
 		#endregion
 

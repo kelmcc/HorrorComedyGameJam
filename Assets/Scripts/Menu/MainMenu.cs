@@ -21,9 +21,9 @@ namespace RenderHeads
             GameManagerService.Instance.StartGame();
 		}
 
-        public void GoToCharacterScene()
+        public void BackToMenu()
         {
-            ScreenManagerService.Instance.LoadCharacterScene();
+            ScreenManagerService.Instance.LoadMenu();
         }
         #endregion
 
