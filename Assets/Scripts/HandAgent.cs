@@ -1,4 +1,5 @@
 //RenderHeads - Jeff Rusch
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,8 @@ namespace RenderHeads
 		#region Private Properties
 
 		private bool _isSeeking = false;
+		private bool _hasSetStance = false;
+		private float _badTouchChance = 0.5f;
 		#endregion
 
 		#region Public Methods
@@ -31,10 +34,39 @@ namespace RenderHeads
 		{
 			navMeshAgent = GetComponent<NavMeshAgent>();
 			navMeshAgent.speed = 1.5f;
-			HandDetection.SetFoundPlayerAction(StartSeeking);
-			HandDetection.SetLostPlayerAction(StopSeeking);
+			HandDetection.SetFoundPlayerAction(FoundPlayer);
+			HandDetection.SetLostPlayerAction(LostPlayer);
 
 			StopSeeking();
+		}
+
+		private void FoundPlayer()
+		{
+			if (!_hasSetStance)
+			{
+				SetStance();
+			}
+
+			StartSeeking();
+		}
+
+		private void LostPlayer()
+		{
+			StopSeeking();
+		}
+
+		private void SetStance()
+		{
+			if (UnityEngine.Random.Range(0.0f, 1.0f) <= _badTouchChance)
+			{
+				TouchType = TouchType.Bad;
+			}
+			else
+			{
+				TouchType = TouchType.Good;
+			}
+
+			Debug.Log("Set type to " + TouchType);
 		}
 
 		public void SetTarget(Transform target)
@@ -44,16 +76,20 @@ namespace RenderHeads
 
 		public void StartSeeking()
 		{
-			Debug.Log("Start Seeking");
-			_isSeeking = true;
-			navMeshAgent.isStopped = false;
+			if (!_isSeeking)
+			{
+				_isSeeking = true;
+				navMeshAgent.isStopped = false;
+			}
 		}
 
 		public void StopSeeking()
 		{
-			Debug.Log("Stop Seeking");
-			_isSeeking = false;
-			navMeshAgent.isStopped = true;
+			if (_isSeeking)
+			{
+				_isSeeking = false;
+				navMeshAgent.isStopped = true;
+			}
 		}
 
 		void Update()
