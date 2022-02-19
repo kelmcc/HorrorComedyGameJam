@@ -1,26 +1,42 @@
 //RenderHeads - Jeff Rusch
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace RenderHeads
 {
-    public class GameManager
-    {
-        #region Public Properties
-        
-        #endregion
+	public class GameManager
+	{
+		#region Public Properties
 
-        #region Private Properties
+		#endregion
 
-        #endregion
+		#region Private Properties
 
-        #region Public Methods
+		#endregion
 
-        #endregion
+		#region Public Methods
 
-        #region Private Methods
+		#endregion
 
-        #endregion
-    }
+		#region Private Methods
+
+		#endregion
+		internal void StartGame()
+		{
+			ScreenManagerService.Instance.LoadGame();
+			LevelManagerService.Instance.StartLevel();
+		}
+
+		internal void WinGame()
+		{
+			Debug.Log("Win Game");
+		}
+
+		internal void LoseGame()
+		{
+			Debug.Log("Lose Game");
+		}
+	}
 }
