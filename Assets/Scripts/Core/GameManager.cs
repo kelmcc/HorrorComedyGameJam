@@ -27,6 +27,7 @@ namespace RenderHeads
 		{
 			ScreenManagerService.Instance.LoadGame();
 			LevelManagerService.Instance.StartLevel();
+			ScreenManagerService.Instance.Reset();
 		}
 
 		internal void WinGame()

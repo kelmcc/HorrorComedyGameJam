@@ -45,8 +45,13 @@ namespace RenderHeads
 		{
 			SceneManager.UnloadSceneAsync(overlaySceneIndex);
 
-			overlaySceneIndex = -1;
+			Reset();
 			LevelManagerService.Instance.ResumeHands();
+		}
+
+		public void Reset()
+		{
+			overlaySceneIndex = -1;
 		}
 		#endregion
 

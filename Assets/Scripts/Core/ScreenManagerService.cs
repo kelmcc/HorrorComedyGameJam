@@ -71,6 +71,11 @@ namespace RenderHeads
 		{
 			screenManager.LoadScene(4);
 		}
+
+		public void Reset()
+		{
+			screenManager.Reset();
+		}
 		#endregion
 
 		#region Private Methods
