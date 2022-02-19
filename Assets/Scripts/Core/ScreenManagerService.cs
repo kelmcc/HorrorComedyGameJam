@@ -34,6 +34,16 @@ namespace RenderHeads
 			screenManager = new ScreenManager();
 			Debug.Log("Hello ScreenManager");
 		}
+
+		public void LoadMenu()
+		{
+			screenManager.LoadScene(1);
+		}
+
+		public void LoadGame()
+		{
+			screenManager.LoadScene(2);
+		}
 		#endregion
 
 		#region Private Methods

@@ -20,6 +20,8 @@ namespace RenderHeads
 		{
 			GameManagerService.Instance.Init();
 			ScreenManagerService.Instance.Init();
+
+			ScreenManagerService.Instance.LoadMenu();
 		}
 		#endregion
 
