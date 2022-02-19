@@ -14,12 +14,12 @@ namespace RenderHeads
 		#endregion
 
 		#region Private Properties
-		private Action foundPlayerAction;
+		private Action<Transform> foundPlayerAction;
 		private Action lostPlayerAction;
 		#endregion
 
 		#region Public Methods
-		public void SetFoundPlayerAction(System.Action action)
+		public void SetFoundPlayerAction(System.Action<Transform> action)
 		{
 			foundPlayerAction += action;
 		}
@@ -35,7 +35,7 @@ namespace RenderHeads
 
 			if (player != null)
 			{
-				foundPlayerAction();
+				foundPlayerAction(player.transform);
 			}
 		}
 

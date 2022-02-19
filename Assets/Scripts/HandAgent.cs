@@ -18,7 +18,6 @@ namespace RenderHeads
 		public TouchType TouchType = TouchType.Bad;
 		public NavMeshAgent navMeshAgent;
 
-		public Transform targetTransform;
 		public HandDetection HandDetection;
 		#endregion
 
@@ -27,6 +26,7 @@ namespace RenderHeads
 		private bool _isSeeking = false;
 		private bool _hasSetStance = false;
 		private float _badTouchChance = 0.5f;
+		private Transform targetTransform;
 		#endregion
 
 		#region Public Methods
@@ -42,18 +42,20 @@ namespace RenderHeads
 			LevelManagerService.Instance.RegisterHand(this);
 		}
 
-		private void FoundPlayer()
+		private void FoundPlayer(Transform transform)
 		{
 			if (!_hasSetStance)
 			{
 				SetStance();
 			}
 
+			targetTransform = transform;
 			StartSeeking();
 		}
 
 		private void LostPlayer()
 		{
+			targetTransform = null;
 			StopSeeking();
 		}
 
@@ -73,12 +75,12 @@ namespace RenderHeads
 
 		internal void Pause()
 		{
-			throw new NotImplementedException();
+			StopSeeking();
 		}
 
 		internal void Resume()
 		{
-			throw new NotImplementedException();
+			StartSeeking();
 		}
 
 		public void SetTarget(Transform target)
