@@ -32,7 +32,6 @@ namespace RenderHeads
 		{
 			GameObject newAgent = GameObject.Instantiate(agentPrefab);
 			newAgent.transform.position = new Vector3(Random.Range(-50f, 50f), 0f, Random.Range(-50f, 50f));
-			newAgent.GetComponent<HandAgent>().SetTarget(player.transform);
 		}
 	}
 }
