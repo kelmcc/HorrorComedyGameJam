@@ -18,6 +18,7 @@ namespace RenderHeads
 		public NavMeshAgent navMeshAgent;
 
 		public Transform targetTransform;
+		public HandDetection HandDetection;
 		#endregion
 
 		#region Private Properties
@@ -30,6 +31,10 @@ namespace RenderHeads
 		{
 			navMeshAgent = GetComponent<NavMeshAgent>();
 			navMeshAgent.speed = 1.5f;
+			HandDetection.SetFoundPlayerAction(StartSeeking);
+			HandDetection.SetLostPlayerAction(StopSeeking);
+
+			StopSeeking();
 		}
 
 		public void SetTarget(Transform target)
@@ -39,13 +44,16 @@ namespace RenderHeads
 
 		public void StartSeeking()
 		{
+			Debug.Log("Start Seeking");
 			_isSeeking = true;
+			navMeshAgent.isStopped = false;
 		}
 
 		public void StopSeeking()
 		{
+			Debug.Log("Stop Seeking");
 			_isSeeking = false;
-			navMeshAgent.isStopped = false;
+			navMeshAgent.isStopped = true;
 		}
 
 		void Update()
