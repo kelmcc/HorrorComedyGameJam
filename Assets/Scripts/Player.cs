@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,6 +41,11 @@ namespace RenderHeads
 			LevelManagerService.Instance.FoundPickup();
 		}
 
+		private void GetPetted(HandAgent handAgent)
+		{
+			LevelManagerService.Instance.GetPetted(handAgent.TouchType);
+		}
+
 		public void OnTriggerEnter(Collider other)
 		{
 			PickUp pickUp = other.gameObject.GetComponent<PickUp>();
@@ -47,6 +53,13 @@ namespace RenderHeads
 			if (pickUp != null)
 			{
 				FoundPickUp(pickUp);
+			}
+
+			HandAgent handAgent = other.gameObject.GetComponent<HandAgent>();
+
+			if (handAgent != null)
+			{
+				GetPetted(handAgent);
 			}
 		}
 	}

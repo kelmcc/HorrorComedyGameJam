@@ -30,9 +30,9 @@ namespace RenderHeads
             Debug.Log("Pickup");
         }
 
-        public void GetPetted()
+        public void GetPetted(TouchType touchType)
         {
-            Debug.Log("Get Petted");
+            Debug.LogFormat("Get Petted ({0})", touchType);
         }
 
         public void EndLevel()

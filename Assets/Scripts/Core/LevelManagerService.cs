@@ -53,6 +53,11 @@ namespace RenderHeads
 		{
 			levelmanager.FoundPickup();
 		}
+
+		internal void GetPetted(TouchType touchType)
+		{
+			levelmanager.GetPetted(touchType);
+		}
 		#endregion
 
 		#region Private Methods
