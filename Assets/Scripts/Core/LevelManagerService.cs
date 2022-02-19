@@ -1,4 +1,5 @@
 //RenderHeads - Jeff Rusch
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,9 @@ namespace RenderHeads
 
         #region Private Properties
 		private static LevelManagerService _instance;
+
+
+
 		private LevelManager levelmanager;
 		#endregion
 
@@ -33,6 +37,31 @@ namespace RenderHeads
 		{
 			levelmanager = new LevelManager();
 			Debug.Log("Hello LevelManager");
+		}
+
+		internal void StartLevel()
+		{
+			levelmanager.StartLevel();
+		}
+
+		internal Player GetPlayer()
+		{
+			return levelmanager.GetPlayer();
+		}
+
+		public void RegisterPlayer(Player player)
+		{
+			levelmanager.RegisterPlayer(player);
+		}
+
+		internal void FoundPickup()
+		{
+			levelmanager.FoundPickup();
+		}
+
+		internal void GetPetted(TouchType touchType)
+		{
+			levelmanager.GetPetted(touchType);
 		}
 		#endregion
 

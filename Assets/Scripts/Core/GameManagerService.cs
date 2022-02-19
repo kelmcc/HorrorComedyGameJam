@@ -1,4 +1,5 @@
 //RenderHeads - Jeff Rusch
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,9 +22,9 @@ namespace RenderHeads
 			}
 		}
 
-        #endregion
+		#endregion
 
-        #region Private Properties
+		#region Private Properties
 		private static GameManagerService _instance;
 		private GameManager gameManager;
         #endregion
@@ -34,10 +35,25 @@ namespace RenderHeads
 			gameManager = new GameManager();
 			Debug.Log("Hello GameManager");
 		}
-        #endregion
 
-        #region Private Methods
+		internal void StartGame()
+		{
+			gameManager.StartGame();
+		}
 
-        #endregion
-    }
+		internal void WinGame()
+		{
+			gameManager.WinGame();
+		}
+
+		internal void LoseGame()
+		{
+			gameManager.LoseGame();
+		}
+		#endregion
+
+		#region Private Methods
+
+		#endregion
+	}
 }

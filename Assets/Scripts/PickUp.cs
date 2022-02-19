@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace RenderHeads
 {
-    public class MainMenu : MonoBehaviour
+    public class PickUp : MonoBehaviour
     {
         #region Public Properties
         
@@ -16,15 +16,7 @@ namespace RenderHeads
         #endregion
 
         #region Public Methods
-        public void StartGame()
-		{
-            GameManagerService.Instance.StartGame();
-		}
 
-        public void BackToMenu()
-        {
-            ScreenManagerService.Instance.LoadMenu();
-        }
         #endregion
 
         #region Private Methods
