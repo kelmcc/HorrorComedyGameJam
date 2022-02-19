@@ -18,6 +18,7 @@ namespace RenderHeads
 		private int badTouchCount = 0;
 		private int badTouchLoseLevelCount = 3;
 		private Player player = null;
+		private List<HandAgent> handAgents = new List<HandAgent>();
 		#endregion
 
 		#region Public Methods
@@ -33,10 +34,12 @@ namespace RenderHeads
 			if (touchType == TouchType.Bad)
 			{
 				badTouchCount++;
+				ScreenManagerService.Instance.ShowBadTouchAnimation();
 			}
 			else
 			{
 				badTouchCount--;
+				ScreenManagerService.Instance.ShowGoodTouchAnimation();
 			}
 
 			if (badTouchCount < 0)
@@ -49,6 +52,27 @@ namespace RenderHeads
 			if (badTouchCount >= badTouchLoseLevelCount)
 			{
 				LoseGame();
+			}
+		}
+
+		internal void RegisterHand(HandAgent handAgent)
+		{
+			handAgents.Add(handAgent);
+		}
+
+		public void PauseHands()
+		{
+			for (int i = 0; i < handAgents.Count; i++)
+			{
+				handAgents[i].Pause();
+			}
+		}
+
+		public void ResumeHands()
+		{
+			for (int i = 0; i < handAgents.Count; i++)
+			{
+				handAgents[i].Resume();
 			}
 		}
 

@@ -54,6 +54,11 @@ namespace RenderHeads
 			levelmanager.RegisterPlayer(player);
 		}
 
+		internal void RegisterHand(HandAgent handAgent)
+		{
+			levelmanager.RegisterHand(handAgent);
+		}
+
 		internal void FoundPickup()
 		{
 			levelmanager.FoundPickup();

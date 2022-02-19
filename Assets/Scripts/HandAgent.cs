@@ -38,6 +38,8 @@ namespace RenderHeads
 			HandDetection.SetLostPlayerAction(LostPlayer);
 
 			StopSeeking();
+
+			LevelManagerService.Instance.RegisterHand(this);
 		}
 
 		private void FoundPlayer()
@@ -67,6 +69,16 @@ namespace RenderHeads
 			}
 
 			Debug.Log("Set type to " + TouchType);
+		}
+
+		internal void Pause()
+		{
+			throw new NotImplementedException();
+		}
+
+		internal void Resume()
+		{
+			throw new NotImplementedException();
 		}
 
 		public void SetTarget(Transform target)
