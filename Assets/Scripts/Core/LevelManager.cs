@@ -52,6 +52,11 @@ namespace RenderHeads
 			}
 		}
 
+		internal Player GetPlayer()
+		{
+			return player;
+		}
+
 		public void EndLevel()
 		{
 			Debug.Log("End level");

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4598255849973074913}
   - component: {fileID: 8951201642476250227}
   - component: {fileID: 6419814550450423121}
-  - component: {fileID: 6797318959311402073}
   - component: {fileID: 6883089021677273152}
+  - component: {fileID: -8487894625250641972}
   m_Layer: 0
   m_Name: HandPrefab
   m_TagString: Untagged
@@ -98,20 +98,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &6797318959311402073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6218953412842524553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce0b9259343fbe4db03362cdaceb81a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 0}
-  playerTransform: {fileID: 0}
 --- !u!195 &6883089021677273152
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -134,3 +120,18 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-8487894625250641972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6218953412842524553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09c2503448734f37aaefc0b4bd59064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TouchType: 1
+  navMeshAgent: {fileID: 0}
+  targetTransform: {fileID: 0}

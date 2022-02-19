@@ -16,7 +16,7 @@ namespace RenderHeads
 
 		Vector3 inputMovement;
 
-		public void Start()
+		public void Awake()
 		{
 			LevelManagerService.Instance.RegisterPlayer(this);
 		}

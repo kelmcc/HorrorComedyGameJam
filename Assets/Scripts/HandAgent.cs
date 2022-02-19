@@ -2,31 +2,64 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 namespace RenderHeads
 {
-    public enum TouchType
+	public enum TouchType
 	{
-        Good,
-        Bad
+		Good,
+		Bad
 	}
 
-    public class HandAgent : MonoBehaviour
-    {
-        #region Public Properties
-        public TouchType TouchType = TouchType.Bad;
-        #endregion
+	public class HandAgent : MonoBehaviour
+	{
+		#region Public Properties
+		public TouchType TouchType = TouchType.Bad;
+		public NavMeshAgent navMeshAgent;
 
-        #region Private Properties
+		public Transform targetTransform;
+		#endregion
 
-        #endregion
+		#region Private Properties
 
-        #region Public Methods
+		private bool _isSeeking = false;
+		#endregion
 
-        #endregion
+		#region Public Methods
+		private void Start()
+		{
+			navMeshAgent = GetComponent<NavMeshAgent>();
+			navMeshAgent.speed = 1.5f;
+		}
 
-        #region Private Methods
+		public void SetTarget(Transform target)
+		{
+			this.targetTransform = target;
+		}
 
-        #endregion
-    }
+		public void StartSeeking()
+		{
+			_isSeeking = true;
+		}
+
+		public void StopSeeking()
+		{
+			_isSeeking = false;
+			navMeshAgent.isStopped = false;
+		}
+
+		void Update()
+		{
+			if (_isSeeking && targetTransform != null)
+			{
+				navMeshAgent.destination = targetTransform.position;
+			}
+
+		}
+		#endregion
+
+		#region Private Methods
+
+		#endregion
+	}
 }
