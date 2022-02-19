@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -338,7 +338,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972110036}
   m_LocalRotation: {x: 0.24435624, y: -0, z: -0, w: 0.96968555}
-  m_LocalPosition: {x: 0, y: 3.64, z: -10}
+  m_LocalPosition: {x: 0, y: 5, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2121036378}
@@ -423,7 +423,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347103290}
   m_LocalRotation: {x: 0.24435624, y: 0, z: 0, w: 0.96968555}
-  m_LocalPosition: {x: 0, y: 3.64, z: -10}
+  m_LocalPosition: {x: 0, y: 5, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -623,7 +623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 2.64, z: -10}
+  m_FollowOffset: {x: 0, y: 4, z: -6}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -924,6 +924,18 @@ PrefabInstance:
     - target: {fileID: 8267836041998006784, guid: d40ea1981d6ddc94f939f935366ac081, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267836041998006786, guid: d40ea1981d6ddc94f939f935366ac081, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267836041998006797, guid: d40ea1981d6ddc94f939f935366ac081, type: 3}
+      propertyPath: m_Radius
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267836041998006797, guid: d40ea1981d6ddc94f939f935366ac081, type: 3}
+      propertyPath: m_Direction
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8267836041998006799, guid: d40ea1981d6ddc94f939f935366ac081, type: 3}
       propertyPath: m_Name
