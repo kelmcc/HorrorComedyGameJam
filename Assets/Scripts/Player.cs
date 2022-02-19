@@ -1,27 +1,66 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class Player : MonoBehaviour {
+namespace RenderHeads
+{
+	[RequireComponent(typeof(Rigidbody))]
+	public class Player : MonoBehaviour
+	{
 
-    public float movementSpeed = 5f;
+		public float movementSpeed = 5f;
 
-    public Rigidbody rb;
-    public Animator animator;
+		public Rigidbody rb;
+		public Animator animator;
 
-    Vector3 inputMovement;
+		Vector3 inputMovement;
 
-    void Update() {
-        inputMovement.x = Input.GetAxisRaw("Horizontal");
-        inputMovement.z = Input.GetAxisRaw("Vertical");
+		public void Awake()
+		{
+			LevelManagerService.Instance.RegisterPlayer(this);
+		}
 
-        animator.SetFloat("Horizontal", inputMovement.x);
-        animator.SetFloat("Vertical", inputMovement.z);
-        animator.SetFloat("Speed", inputMovement.sqrMagnitude);
-    }
+		public void Update()
+		{
+			inputMovement.x = Input.GetAxisRaw("Horizontal");
+			inputMovement.z = Input.GetAxisRaw("Vertical");
 
-    void FixedUpdate() {
-        rb.MovePosition(rb.position + inputMovement * movementSpeed * Time.fixedDeltaTime);
-    }
+			animator.SetFloat("Horizontal", inputMovement.x);
+			animator.SetFloat("Vertical", inputMovement.z);
+			animator.SetFloat("Speed", inputMovement.sqrMagnitude);
+		}
+
+		public void FixedUpdate()
+		{
+			rb.MovePosition(rb.position + inputMovement * movementSpeed * Time.fixedDeltaTime);
+		}
+
+		public void FoundPickUp(PickUp pickUp)
+		{
+			LevelManagerService.Instance.FoundPickup();
+		}
+
+		private void GetPetted(HandAgent handAgent)
+		{
+			LevelManagerService.Instance.GetPetted(handAgent.TouchType);
+		}
+
+		public void OnTriggerEnter(Collider other)
+		{
+			PickUp pickUp = other.gameObject.GetComponent<PickUp>();
+
+			if (pickUp != null)
+			{
+				FoundPickUp(pickUp);
+			}
+
+			HandAgent handAgent = other.gameObject.GetComponent<HandAgent>();
+
+			if (handAgent != null)
+			{
+				GetPetted(handAgent);
+			}
+		}
+	}
 }
